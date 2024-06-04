@@ -1,0 +1,72 @@
+
+/* Accessibility */
+
+/* prefers-color-scheme
+Having a “dark mode” color scheme is something we’re seeing a lot more of these days, 
+and thanks to the prefers-color-scheme feature, 
+we can tap into a user’s system or browser preferences to determine whether 
+we serve a “dark” or a “light” theme based on the ir preferences.
+
+It takes two values:
+
+light: When a user has selected that they prefer a light theme or has no active preferences
+dark: When a user has selected a dark display in their settings */
+
+@media screen and (prefers-color-scheme: dark) {
+    body {
+      --bg-color: black;
+      --text-color: white;
+    }
+  }
+
+
+  /* inverted-colors
+The inverted-colors feature informs whether the user has chosen 
+to invert the colors on their system preferences or the browser settings. 
+Sometimes this option is used as an alternative to high contrast. It takes three values:
+
+none: When colors are displayed normally
+inverted: When a user has selected the option to invert colors */
+
+  @media (inverted-colors) {
+    img, video { 
+      filter: invert(100%);
+    }
+  }
+
+
+  /* 
+  prefers-contrast
+The prefers-contrast feature informs whether the user has chosen to increase or 
+reduce contrast in their system preferences or the browser settings. It takes three values:
+
+no-preference: When a user has made no preference known to the system. 
+If you use it as a boolean it’ll evaluate false.
+high: When a user has selected the option to display a higher level of contrast.
+low: When a user has selected the option to display a lower level of contrast.
+   */
+  
+@media (prefers-contrast: high) {
+    .button {
+      background-color: #0a0db7;
+    }
+  }
+
+  /* prefers-reduced-motion
+prefers-reduced-motion detects if the user has the reduced motion preference 
+activated to minimize the amount of movements and animations. 
+It takes two values:
+
+no-preference: Indicates that the user has made no preference known to the system.
+reduce: Indicates that user has notified the system that they prefer an 
+interface that minimizes the amount of movement or animation, 
+preferably to the point where all non-essential movement is removed. */
+
+  @media screen and (prefers-reduced-motion: reduce) {  
+    * {
+      /* Very short durations means JavaScript that relies on events still works */
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }

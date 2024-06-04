@@ -1,0 +1,8 @@
+@media (max-width:600px){}
+
+/* Difference blw @media, screen and only screen 
+  1. Screen: It targets all devices, such as smartphones, desktops, tablets, etc.
+  2. Only Screen: It also targets all devices except those that don’t support the media types 
+  and features like scanners or printers.
+  3. @media: This code is saying that you can apply max-width:600px for a window.
+*/
